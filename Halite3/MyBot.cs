@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Halite3.hlt;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace Halite3
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Game game = new Game();
         }
     }
 }
