@@ -1,5 +1,7 @@
 # Starter Kit
 
+##TODO: Input validation in Constants.cs might be missing :P
+
 ## Halite III starter kit components
 * MyBot.{extension}, a starter bot outline
 * /hlt directory, which contains modifiable helper functions for your bot
