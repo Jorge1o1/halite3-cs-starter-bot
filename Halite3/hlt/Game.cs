@@ -10,8 +10,11 @@ namespace Halite3.hlt
     /// </summary>
     public class Game
     {
-        private int turnNumber;
-        private int myId;
+        public int turnNumber;
+        public readonly PlayerId myId;
+        public readonly List<Player> players = new List<Player>();
+        public readonly Player me;
+        public readonly GameMap gameMap;
 
         /// <summary>
         /// Initiates a game object collecting all start-state instances for the contained items for pre-game.
@@ -19,16 +22,71 @@ namespace Halite3.hlt
         /// </summary>
         public Game()
         {
-            this.turnNumber = 0;
-
             //Grab constants JSON
-            Constants.LoadConstants(Console.ReadLine());
+            Constants.LoadConstants(Input.ReadLine());
 
-            string[] numPlayersAndIdStrArr = Console.ReadLine().Split();
-            int numPlayers = int.Parse(numPlayersAndIdStrArr[0]);
-            this.myId = int.Parse(numPlayersAndIdStrArr[1]);
+            Input inputs = Input.ReadInput();
+            int numPlayers = inputs.GetInt();
+            myId = new PlayerId(inputs.GetInt());
 
             Log.Initialize(new StreamWriter(String.Format("bot-{0}.log", myId)));
+
+            for (int i = 0; i < numPlayers; i++)
+            {
+                players.Add(Player._generate());
+            }
+            me = players[myId.id];
+            gameMap = GameMap._generate();
+        }
+
+        public void Ready(string name)
+        {
+            Console.WriteLine(name);
+        }
+
+        public void UpdateFrame()
+        {
+            turnNumber = Input.ReadInput().GetInt();
+            Log.LogMessage("=============== TURN " + turnNumber + " ================");
+
+            for (int i = 0; i < players.Count; ++i)
+            {
+                Input input = Input.ReadInput();
+
+                PlayerId currentPlayerId = new PlayerId(input.GetInt());
+                int numShips = input.GetInt();
+                int numDropoffs = input.GetInt();
+                int halite = input.GetInt();
+
+                players[currentPlayerId.id]._update(numShips, numDropoffs, halite);
+            }
+
+            gameMap._update();
+
+            foreach (Player player in players)
+            {
+                foreach (Ship ship in player.ships.Values)
+                {
+                    gameMap.At(ship).MarkUnsafe(ship);
+                }
+
+                gameMap.At(player.shipyard).structure = player.shipyard;
+
+                foreach (Dropoff dropoff in player.dropoffs.Values)
+                {
+                    gameMap.At(dropoff).structure = dropoff;
+                }
+            }
+        }
+
+        public void EndTurn(IEnumerable<Command> commands)
+        {
+            foreach (Command command in commands)
+            {
+                Console.Write(command.command);
+                Console.Write(' ');
+            }
+            Console.WriteLine();
         }
     }
 }
