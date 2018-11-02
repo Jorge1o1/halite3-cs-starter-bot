@@ -1,6 +1,7 @@
 # Starter Kit
 
-##TODO: Input validation in Constants.cs might be missing :P
+## TODO: Input validation in Constants.cs might be missing :P
+## TODO: Someone with mac or linux who knows bash write a good run_game.sh
 
 ## Halite III starter kit components
 * MyBot.{extension}, a starter bot outline
