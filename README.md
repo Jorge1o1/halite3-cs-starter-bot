@@ -42,5 +42,5 @@ Just to be sure though, there's two things you might want to check for before up
 ```
 <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
- </ItemGroup>
- ```
+</ItemGroup>
+```
