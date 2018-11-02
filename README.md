@@ -16,8 +16,8 @@ Some interesting modifications you can make to the run_game files:
 
 ## Submitting your bot
 * Zip your MyBot.csproj file, your Sharpie.cs file and the /hlt directory together.
+* It is *IMPERATIVE* that your project be called **MyBot.csproj** 
 * Submit your zipped file here: https://halite.io/play-programming-challenge
-* It is imperative that your project be called **MyBot.csproj**
 
 ## Using the Visual Studio Debugger
 If you would like to use the VS Debugger:
