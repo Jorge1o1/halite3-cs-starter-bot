@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Halite3.hlt
 {
+    /// <summary>
+    /// Players have an id, a shipyard, halite and dictionaries of ships and dropoffs as member variables.
+    /// </summary>
+    /// <see cref="https://halite.io/learn-programming-challenge/api-docs#player"/>
     public class Player
     {
         public readonly PlayerId id;
@@ -18,6 +22,9 @@ namespace Halite3.hlt
             this.halite = halite;
         }
 
+        /// <summary>
+        /// Update each ship and dropoff for the player.
+        /// </summary>
         public void _update(int numShips, int numDropoffs, int halite)
         {
             this.halite = halite;
@@ -37,6 +44,10 @@ namespace Halite3.hlt
             }
         }
 
+        /// <summary>
+        /// Create a new Player by reading from the Halite engine.
+        /// </summary>
+        /// <returns></returns>
         public static Player _generate()
         {
             Input input = Input.ReadInput();

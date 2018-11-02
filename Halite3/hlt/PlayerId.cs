@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Halite3.hlt
 {
+    /// <summary>
+    /// A PlayerId is the identifier that corresponds to a Player.
+    /// </summary>
     public class PlayerId
     {
         public readonly int id;

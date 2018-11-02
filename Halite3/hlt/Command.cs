@@ -4,16 +4,30 @@
     {
         public readonly string command;
 
+        /// <summary>
+        /// Create a new Spawn Ship command
+        /// </summary>
+        /// <returns>Command("g")</returns>
         public static Command SpawnShip()
         {
             return new Command("g");
         }
 
+        /// <summary>
+        /// Create a new Dropoff command
+        /// </summary>
+        /// <returns>Command("g")</returns>
         public static Command TransformShipIntoDropoffSite(EntityId id)
         {
             return new Command("c " + id);
         }
 
+        /// <summary>
+        /// Create a new command for moving a ship in a given direction
+        /// </summary>
+        /// <param name="id">EntityId of the ship</param>
+        /// <param name="direction">Direction to move in</param>
+        /// <returns></returns>
         public static Command Move(EntityId id, Direction direction)
         {
             return new Command("m " + id + ' ' + (char)direction);

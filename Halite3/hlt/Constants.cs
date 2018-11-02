@@ -70,6 +70,11 @@ namespace Halite3.hlt
         /// </summary>
         public static double INSPIRED_MOVE_COST_RATIO;
 
+        /// <summary>
+        /// Deserializes the JSON string of constants and stores it as a collection
+        /// of static variables.
+        /// </summary>
+        /// <param name="constantsStr">A JSON string containing the game constants</param>
         public static void LoadConstants(string constantsStr)
         {
             Dictionary<string, string> constantsDict =

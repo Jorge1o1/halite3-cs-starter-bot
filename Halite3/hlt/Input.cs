@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Halite3.hlt
 {
+    /// <summary>
+    /// A class that wraps Console.Readline() and int.Parse() with exception handling.
+    /// </summary>
     public class Input
     {
         private readonly string[] input;

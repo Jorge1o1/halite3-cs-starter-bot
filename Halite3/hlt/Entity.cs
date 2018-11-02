@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Halite3.hlt
 {
+    /// <summary>
+    /// A base class extended by Ship, Dropoff, and Shipyard.
+    /// </summary>
     public class Entity
     {
         public readonly PlayerId owner;

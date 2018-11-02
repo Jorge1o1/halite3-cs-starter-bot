@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Halite3.hlt
 {
+    /// <summary>
+    /// An EntityId is the identifier that corresponds to a ship, shipyard, or dropoff.
+    /// </summary>
     public class EntityId
     {
         public const int NONE = -1;

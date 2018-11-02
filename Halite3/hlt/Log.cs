@@ -2,6 +2,9 @@
 
 namespace Halite3.hlt
 {
+    /// <summary>
+    /// A class that can be used to log messages to a file.
+    /// </summary>
     public class Log
     {
         private TextWriter file;

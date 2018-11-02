@@ -8,6 +8,7 @@ namespace Halite3.hlt
     /// <summary>
     /// The game object holds all metadata pertinent to the game and all its contents
     /// </summary>
+    /// <see cref="https://halite.io/learn-programming-challenge/api-docs#game"/>
     public class Game
     {
         public int turnNumber;
@@ -39,11 +40,19 @@ namespace Halite3.hlt
             gameMap = GameMap._generate();
         }
 
+        /// <summary>
+        /// Signals to the Halite engine that you are ready to begin.
+        /// </summary>
+        /// <param name="name"></param>
         public void Ready(string name)
         {
             Console.WriteLine(name);
         }
 
+        /// <summary>
+        /// Reads in the information about the new turn from the Halite engine,
+        /// and then updates the GameMap and the Players.
+        /// </summary>
         public void UpdateFrame()
         {
             turnNumber = Input.ReadInput().GetInt();
@@ -79,6 +88,10 @@ namespace Halite3.hlt
             }
         }
 
+        /// <summary>
+        /// Converts instances of Command into strings and sends them to the Halite engine.
+        /// </summary>
+        /// <param name="commands">An IEnumerable such as an array or List of commands.</param>
         public void EndTurn(IEnumerable<Command> commands)
         {
             foreach (Command command in commands)

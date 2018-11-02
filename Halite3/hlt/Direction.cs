@@ -3,6 +3,10 @@ using System.Collections.Generic;
 
 namespace Halite3.hlt
 {
+    /// <summary>
+    /// A Direction is one of the 4 cardinal directions or STILL.
+    /// </summary>
+    /// <see cref="https://halite.io/learn-programming-challenge/api-docs#direction"/>
     public enum Direction
     {
         NORTH = 'n',
@@ -14,6 +18,9 @@ namespace Halite3.hlt
 
     public static class DirectionExtensions
     {
+        /// <summary>
+        /// Returns the opposite of this direction. The opposite of STILL is STILL.
+        /// </summary>
         public static Direction InvertDirection(this Direction direction)
         {
             switch (direction)
